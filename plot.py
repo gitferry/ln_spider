@@ -22,7 +22,7 @@ def process_data(channel_counts):
     total_counts = []
     for count in channel_counts:
         sum_count += count
-        total_counts.append(sum_count/1000.0)
+        total_counts.append(sum_count/2000.0)
 
     return total_counts
 
@@ -45,7 +45,7 @@ def do_plot(channel_counts):
     ax.set_xlabel("Fraction of Hosts Needed to Provide Channels")
     ax.set_ylabel("Number of Channels ($\\times10^3$)")
     ax.set_xlim(0,1.0,0.1)
-    ax.set_ylim(0,60)
+    ax.set_ylim(0,30)
     channel_plot = ax.plot(index, channel_counts)
     y = channel_counts[144]
     print(y)
@@ -55,8 +55,8 @@ def do_plot(channel_counts):
 
     plt.grid(True)
     plt.xticks([0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1.0])
-    plt.annotate(r'28.099', xy=(0.05,y), xycoords='data', xytext=(+30,-30), textcoords='offset points', fontsize=16, arrowprops=dict(arrowstyle='->', connectionstyle='arc3, rad=0.2'))
-    plt.annotate(r'54.656', xy=(0,channel_counts[-1]), xycoords='data', xytext=(+20,-50), textcoords='offset points', fontsize=16, arrowprops=dict(arrowstyle='->', connectionstyle='arc3, rad=0.2'))
+    plt.annotate(r'14.05', xy=(0.05,y), xycoords='data', xytext=(+30,-30), textcoords='offset points', fontsize=16, arrowprops=dict(arrowstyle='->', connectionstyle='arc3, rad=0.2'))
+    plt.annotate(r'27.33', xy=(0,channel_counts[-1]), xycoords='data', xytext=(+20,-50), textcoords='offset points', fontsize=16, arrowprops=dict(arrowstyle='->', connectionstyle='arc3, rad=0.2'))
     # plt.show()
     plt.savefig('reproduce.pdf', format='pdf')
 
